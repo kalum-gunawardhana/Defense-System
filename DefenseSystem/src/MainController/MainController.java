@@ -12,7 +12,9 @@ public class MainController implements ControlObservableInterface {
 
     private ControlObserver[] observerArray;
 
-    private int positionLevel;
+    private int scrollValue;
+    
+    private String selectedValue;
 
     public MainController() {
         observerArray = new ControlObserver[0];
@@ -29,16 +31,17 @@ public class MainController implements ControlObservableInterface {
         observerArray[observerArray.length - 1] = ob;
     }
 
-    public void setPositionLevel(int positionLevel) {
-        if (this.positionLevel != positionLevel) {
-            this.positionLevel = positionLevel;
+    public void setPositionLevel(int scrollValue,String selectedValue) {
+        if (this.scrollValue != scrollValue && this.selectedValue!="") {
+            this.scrollValue = scrollValue;
+            this.selectedValue=selectedValue;
         }
-        notifyObjects();
+        notifyObjects(scrollValue,selectedValue);
     }
 
-    public void notifyObjects() {
+    public void notifyObjects(int scrollValue,String selectedValue) {
         for (ControlObserver ob : observerArray) {
-            ob.update(positionLevel);
+            ob.update(scrollValue,selectedValue);
         }
     }
 

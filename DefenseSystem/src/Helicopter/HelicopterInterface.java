@@ -10,7 +10,7 @@ import MainController.ControlObserver;
  *
  * @author kguna
  */
-public class HelicopterInterface extends javax.swing.JFrame implements ControlObserver{
+public class HelicopterInterface extends javax.swing.JFrame implements ControlObserver {
 
     /**
      * Creates new form HelicopterInterface
@@ -49,7 +49,7 @@ public class HelicopterInterface extends javax.swing.JFrame implements ControlOb
         jSlider1 = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLaANC.setText("Area Not Cleared");
 
@@ -209,7 +209,7 @@ public class HelicopterInterface extends javax.swing.JFrame implements ControlOb
     public void updateTitle(boolean isChecked) {
         //System.out.println("correct");
         jLaANC.setText(isChecked ? "Area Cleared" : "Area Not Cleared");
-
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -231,7 +231,15 @@ public class HelicopterInterface extends javax.swing.JFrame implements ControlOb
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void update(int positionLevel) {
-        
+    public void update(int scrollValue, String selectedValue) {
+        if (scrollValue > 50 && selectedValue.equals("Helicopter")) {
+            btnHeliSh.setEnabled(true);
+            btnHeliMO.setEnabled(true);
+            btnHeliLO.setEnabled(true);
+        }else if(scrollValue < 50 && selectedValue.equals("Helicopter")){
+            btnHeliSh.setEnabled(false);
+            btnHeliMO.setEnabled(false);
+            btnHeliLO.setEnabled(false);
+        }
     }
 }

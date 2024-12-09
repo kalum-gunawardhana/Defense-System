@@ -9,13 +9,19 @@ package MainController;
  * @author kguna
  */
 public class MainControllerInterface extends javax.swing.JFrame {
+
     ControlObservableInterface controlObservableInterface;
+
+    String selectedValue;
+    
+    int scrollValue;
+
     //MainController mc=new MainController();
     /**
      * Creates new form MainControllerInterface
      */
     public MainControllerInterface(ControlObservableInterface controlObservableInterface) {
-        this.controlObservableInterface=controlObservableInterface;
+        this.controlObservableInterface = controlObservableInterface;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -29,7 +35,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComBoSD = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         btnMaAreaClear = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
@@ -40,15 +46,20 @@ public class MainControllerInterface extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jCheckBox2 = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
+        jSlider = new javax.swing.JSlider();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defense", "Helicopter", "Tank", "Submarine" }));
+        jComBoSD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defense", "Helicopter", "Tank", "Submarine" }));
+        jComBoSD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComBoSDActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Collect Informations");
 
@@ -74,10 +85,20 @@ public class MainControllerInterface extends javax.swing.JFrame {
         jCheckBox2.setText("Sent Private");
 
         jButton2.setText("Sent");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jSlider1.setMajorTickSpacing(20);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
+        jSlider.setMajorTickSpacing(20);
+        jSlider.setPaintLabels(true);
+        jSlider.setPaintTicks(true);
+        jSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderStateChanged(evt);
+            }
+        });
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
@@ -99,7 +120,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComBoSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
@@ -107,7 +128,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3))
@@ -124,7 +145,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComBoSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
                     .addComponent(btnMaAreaClear))
                 .addGap(39, 39, 39)
@@ -144,7 +165,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,17 +184,35 @@ public class MainControllerInterface extends javax.swing.JFrame {
         controlObservableInterface.setTitle(isChecked);
     }//GEN-LAST:event_btnMaAreaClearActionPerformed
 
+    private void jComBoSDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComBoSDActionPerformed
+        // TODO add your handling code here:
+        selectedValue = (String) jComBoSD.getSelectedItem();
+        //System.out.println(selectedValue);
+    }//GEN-LAST:event_jComBoSDActionPerformed
+
+    private void jSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderStateChanged
+        // TODO add your handling code here:
+        scrollValue = jSlider.getValue();
+        //System.out.println(scrollValue);
+        controlObservableInterface.setPositionLevel(scrollValue,selectedValue);
+    }//GEN-LAST:event_jSliderStateChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String mainText=jTextArea4.getText();
+        System.out.println(mainText);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox btnMaAreaClear;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComBoSD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -181,7 +220,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSlider;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;

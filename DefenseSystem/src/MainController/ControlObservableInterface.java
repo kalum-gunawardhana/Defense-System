@@ -9,6 +9,6 @@ package MainController;
  * @author kguna
  */
 public interface ControlObservableInterface {
-   public void setPositionLevel(int positionLevel);
+   public void setPositionLevel(int scrollValue,String selectedValue);
    public void setTitle(boolean isChecked);
 }

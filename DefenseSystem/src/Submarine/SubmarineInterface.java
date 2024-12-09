@@ -54,7 +54,7 @@ public class SubmarineInterface extends javax.swing.JFrame implements ControlObs
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLaANC.setText("Area Not Cleared");
 
@@ -259,8 +259,18 @@ public class SubmarineInterface extends javax.swing.JFrame implements ControlObs
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void update(int positionLevel) {
-        
+    public void update(int scrollValue, String selectedValue) {
+        if (scrollValue > 50 && selectedValue.equals("Submarine")) {
+            btnSubSh.setEnabled(true);
+            btnSubSO.setEnabled(true);
+            btnSubTM.setEnabled(true);
+            btnSubT2M.setEnabled(true);
+        }else if(scrollValue < 50 && selectedValue.equals("Submarine")){
+            btnSubSh.setEnabled(false);
+            btnSubSO.setEnabled(false);
+            btnSubTM.setEnabled(false);
+            btnSubT2M.setEnabled(false);
+        }
     }
 
     @Override

@@ -51,7 +51,7 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
         jSlider1 = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabANC.setText("Area Not Cleared");
 
@@ -123,11 +123,11 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(32, 32, 32)))
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
@@ -238,8 +238,19 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void update(int positionLevel) {
-        
+    public void update(int scrollValue, String selectedValue) {
+        //System.out.println("correct");
+        if (scrollValue > 50 && selectedValue.equals("Tank")) {
+            btnTaSh.setEnabled(true);
+            btnTaMO.setEnabled(true);
+            btnTanRO.setEnabled(true);
+            btnTanRS.setEnabled(true);
+        }else if(scrollValue < 50 && selectedValue.equals("Tank")){
+            btnTaSh.setEnabled(false);
+            btnTaMO.setEnabled(false);
+            btnTanRO.setEnabled(false);
+            btnTanRS.setEnabled(false);
+        }
     }
 
     @Override

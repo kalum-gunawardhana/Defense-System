@@ -9,6 +9,6 @@ package MainController;
  * @author kguna
  */
 public interface ControlObserver {
-    public void update(int positionLevel);
+    public void update(int scrollValue,String selectedValue);
     public void updateTitle(boolean isChecked);
 }
