@@ -4,6 +4,12 @@
  */
 package defensesystem;
 
+import Helicopter.HelicopterInterface;
+import MainController.MainController;
+import MainController.MainControllerInterface;
+import Submarine.SubmarineInterface;
+import Tank.TankInterface;
+
 /**
  *
  * @author kguna
@@ -14,10 +20,14 @@ public class DefenseSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        MainController mc = new MainController();
         // TODO code application logic here
-        new MainController.MainControllerInterface().setVisible(true);
-        new Tank.TankInterface().setVisible(true);
-        new Submarine.SubmarineInterface().setVisible(true);
-        new Helicopter.HelicopterInterface().setVisible(true);
+        mc.addPositionLevelObserver(new TankInterface());
+        mc.addPositionLevelObserver(new HelicopterInterface());
+        mc.addPositionLevelObserver(new SubmarineInterface());
+        new MainControllerInterface(mc).setVisible(true);
+        //new TankInterface().setVisible(true);
+        //new SubmarineInterface().setVisible(true);
+        //new HelicopterInterface().setVisible(true);
     }
 }

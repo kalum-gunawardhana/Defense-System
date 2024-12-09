@@ -8,7 +8,7 @@ package MainController;
  *
  * @author kguna
  */
-public class MainController implements ControlObserver {
+public class MainController implements ControlObservableInterface {
 
     private ControlObserver[] observerArray;
 
@@ -42,8 +42,10 @@ public class MainController implements ControlObserver {
         }
     }
 
-    @Override
-    public void update(int positionLevel) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setTitle(boolean isChecked) {
+        //System.out.println("correct");
+        for (ControlObserver ob : observerArray) {
+            ob.updateTitle(isChecked);
+        }
     }
 }

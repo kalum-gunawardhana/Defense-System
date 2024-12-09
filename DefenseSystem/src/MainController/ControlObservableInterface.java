@@ -9,5 +9,6 @@ package MainController;
  * @author kguna
  */
 public interface ControlObservableInterface {
-    
+   public void setPositionLevel(int positionLevel);
+   public void setTitle(boolean isChecked);
 }

@@ -4,11 +4,13 @@
  */
 package Tank;
 
+import MainController.ControlObserver;
+
 /**
  *
  * @author kguna
  */
-public class TankInterface extends javax.swing.JFrame {
+public class TankInterface extends javax.swing.JFrame implements ControlObserver{
 
     /**
      * Creates new form TankInterface
@@ -20,6 +22,7 @@ public class TankInterface extends javax.swing.JFrame {
         btnTanRO.setEnabled(false);
         btnTaMO.setEnabled(false);
         btnTanRS.setEnabled(false);
+        setVisible(true);
     }
 
     /**
@@ -31,7 +34,7 @@ public class TankInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabANC = new javax.swing.JLabel();
         btnTaSh = new javax.swing.JButton();
         btnTanRO = new javax.swing.JButton();
         btnTaMO = new javax.swing.JButton();
@@ -50,9 +53,14 @@ public class TankInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Area Not Cleared");
+        jLabANC.setText("Area Not Cleared");
 
         btnTaSh.setText("Shoot");
+        btnTaSh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTaShActionPerformed(evt);
+            }
+        });
 
         btnTanRO.setText("Ready Operation");
 
@@ -98,8 +106,8 @@ public class TankInterface extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                                .addComponent(jLabANC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -133,7 +141,7 @@ public class TankInterface extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
+                                    .addComponent(jLabANC)
                                     .addComponent(jLabel4)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -170,6 +178,10 @@ public class TankInterface extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTaShActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaShActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTaShActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,7 +225,7 @@ public class TankInterface extends javax.swing.JFrame {
     private javax.swing.JButton btnTanRS;
     private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabANC;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -224,4 +236,16 @@ public class TankInterface extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(int positionLevel) {
+        
+    }
+
+    @Override
+    public void updateTitle(boolean isChecked) {
+        //System.out.println("correct");
+        jLabANC.setText(isChecked ? "Area Cleared" : "Area Not Cleared");
+
+    }
 }

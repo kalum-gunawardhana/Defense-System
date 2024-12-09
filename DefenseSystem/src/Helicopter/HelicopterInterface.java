@@ -4,11 +4,13 @@
  */
 package Helicopter;
 
+import MainController.ControlObserver;
+
 /**
  *
  * @author kguna
  */
-public class HelicopterInterface extends javax.swing.JFrame {
+public class HelicopterInterface extends javax.swing.JFrame implements ControlObserver{
 
     /**
      * Creates new form HelicopterInterface
@@ -19,6 +21,7 @@ public class HelicopterInterface extends javax.swing.JFrame {
         btnHeliSh.setEnabled(false);
         btnHeliMO.setEnabled(false);
         btnHeliLO.setEnabled(false);
+        setVisible(true);
     }
 
     /**
@@ -30,7 +33,7 @@ public class HelicopterInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLaANC = new javax.swing.JLabel();
         btnHeliSh = new javax.swing.JButton();
         btnHeliLO = new javax.swing.JButton();
         btnHeliMO = new javax.swing.JButton();
@@ -48,7 +51,7 @@ public class HelicopterInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Area Not Cleared");
+        jLaANC.setText("Area Not Cleared");
 
         btnHeliSh.setText("Shoot");
         btnHeliSh.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +100,7 @@ public class HelicopterInterface extends javax.swing.JFrame {
                         .addComponent(jButton4))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLaANC, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnHeliSh, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -105,7 +108,6 @@ public class HelicopterInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addGap(49, 49, 49)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -126,7 +128,7 @@ public class HelicopterInterface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLaANC)
                     .addComponent(jLabel4))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -203,6 +205,12 @@ public class HelicopterInterface extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void updateTitle(boolean isChecked) {
+        //System.out.println("correct");
+        jLaANC.setText(isChecked ? "Area Cleared" : "Area Not Cleared");
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHeliLO;
@@ -210,7 +218,7 @@ public class HelicopterInterface extends javax.swing.JFrame {
     private javax.swing.JButton btnHeliSh;
     private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLaANC;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -221,4 +229,9 @@ public class HelicopterInterface extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(int positionLevel) {
+        
+    }
 }

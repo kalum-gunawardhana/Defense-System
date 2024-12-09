@@ -10,4 +10,5 @@ package MainController;
  */
 public interface ControlObserver {
     public void update(int positionLevel);
+    public void updateTitle(boolean isChecked);
 }
