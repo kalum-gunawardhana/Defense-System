@@ -5,17 +5,20 @@
 package Tank;
 
 import MainController.ControlObserver;
+import MainController.MainController;
+import MainController.MainControllerInterface;
 
 /**
  *
  * @author kguna
  */
 public class TankInterface extends javax.swing.JFrame implements ControlObserver{
-
+    private MainControllerInterface mci;
     /**
      * Creates new form TankInterface
      */
-    public TankInterface() {
+    public TankInterface(MainControllerInterface mci) {
+        this.mci=mci;
         initComponents();
         setLocationRelativeTo(null);
         btnTaSh.setEnabled(false);
@@ -79,6 +82,11 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton5.setText("Sent");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jSlider1.setMajorTickSpacing(20);
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
@@ -183,40 +191,11 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTaShActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TankInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TankInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TankInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TankInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TankInterface().setVisible(true);
-            }
-        });
-    }
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String tankText= jTextField1.getText();
+        mci.setTankText(tankText);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTaMO;
@@ -258,5 +237,11 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
         //System.out.println("correct");
         jLabANC.setText(isChecked ? "Area Cleared" : "Area Not Cleared");
 
+    }
+
+    @Override
+    public void updateMainText(String mainText) {
+        //System.out.println(mainText);
+        jTextArea1.setText(mainText);
     }
 }

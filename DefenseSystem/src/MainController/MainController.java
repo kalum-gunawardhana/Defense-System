@@ -51,4 +51,12 @@ public class MainController implements ControlObservableInterface {
             ob.updateTitle(isChecked);
         }
     }
+
+    @Override
+    public void setTextFields(String mainText) {
+        //System.out.println(mainText);
+        for (ControlObserver ob : observerArray) {
+            ob.updateMainText(mainText);
+        }
+    }
 }

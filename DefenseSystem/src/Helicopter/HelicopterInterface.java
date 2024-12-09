@@ -5,17 +5,19 @@
 package Helicopter;
 
 import MainController.ControlObserver;
+import MainController.MainControllerInterface;
 
 /**
  *
  * @author kguna
  */
 public class HelicopterInterface extends javax.swing.JFrame implements ControlObserver {
-
+private MainControllerInterface mci;
     /**
      * Creates new form HelicopterInterface
      */
-    public HelicopterInterface() {
+    public HelicopterInterface(MainControllerInterface mci) {
+        this.mci=mci;
         initComponents();
         setLocationRelativeTo(null);
         btnHeliSh.setEnabled(false);
@@ -69,6 +71,11 @@ public class HelicopterInterface extends javax.swing.JFrame implements ControlOb
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton4.setText("Sent");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Soldier Count");
 
@@ -171,41 +178,12 @@ public class HelicopterInterface extends javax.swing.JFrame implements ControlOb
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHeliShActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HelicopterInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HelicopterInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HelicopterInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HelicopterInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String tankText= jTextField1.getText();
+        mci.setTankText(tankText);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HelicopterInterface().setVisible(true);
-            }
-        });
-    }
-    
     public void updateTitle(boolean isChecked) {
         //System.out.println("correct");
         jLaANC.setText(isChecked ? "Area Cleared" : "Area Not Cleared");
@@ -241,5 +219,11 @@ public class HelicopterInterface extends javax.swing.JFrame implements ControlOb
             btnHeliMO.setEnabled(false);
             btnHeliLO.setEnabled(false);
         }
+    }
+
+    @Override
+    public void updateMainText(String mainText) {
+        //System.out.println(mainText);
+        jTextArea1.setText(mainText);
     }
 }

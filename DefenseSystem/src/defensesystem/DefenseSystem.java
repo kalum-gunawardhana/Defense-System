@@ -22,10 +22,11 @@ public class DefenseSystem {
     public static void main(String[] args) {
         MainController mc = new MainController();
         // TODO code application logic here
-        mc.addPositionLevelObserver(new TankInterface());
-        mc.addPositionLevelObserver(new HelicopterInterface());
-        mc.addPositionLevelObserver(new SubmarineInterface());
-        new MainControllerInterface(mc).setVisible(true);
+        MainControllerInterface mci= new MainControllerInterface(mc);
+        mc.addPositionLevelObserver(new TankInterface(mci));
+        mc.addPositionLevelObserver(new HelicopterInterface(mci));
+        mc.addPositionLevelObserver(new SubmarineInterface(mci));
+        //new MainControllerInterface(mc).setVisible(true);
         //new TankInterface().setVisible(true);
         //new SubmarineInterface().setVisible(true);
         //new HelicopterInterface().setVisible(true);

@@ -24,6 +24,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
         this.controlObservableInterface = controlObservableInterface;
         initComponents();
         setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -80,6 +81,15 @@ public class MainControllerInterface extends javax.swing.JFrame {
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
+        jTextArea2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTextArea2AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         jScrollPane2.setViewportView(jTextArea2);
 
         jCheckBox2.setText("Sent Private");
@@ -200,12 +210,26 @@ public class MainControllerInterface extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String mainText=jTextArea4.getText();
-        System.out.println(mainText);
+        //System.out.println(mainText);
+        controlObservableInterface.setTextFields(mainText);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextArea2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTextArea2AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextArea2AncestorAdded
 
     /**
      * @param args the command line arguments
      */
+    
+//    public void setTankMsg(String tankText){
+//        System.out.println(tankText);
+//        jTextArea2.setText(tankText);
+//    }
+    
+    public void setTankText(String tankText){
+        jTextArea2.setText(tankText);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox btnMaAreaClear;

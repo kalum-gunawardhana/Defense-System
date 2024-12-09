@@ -11,4 +11,5 @@ package MainController;
 public interface ControlObserver {
     public void update(int scrollValue,String selectedValue);
     public void updateTitle(boolean isChecked);
+    public void updateMainText(String mainText);
 }

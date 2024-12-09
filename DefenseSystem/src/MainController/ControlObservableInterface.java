@@ -11,4 +11,5 @@ package MainController;
 public interface ControlObservableInterface {
    public void setPositionLevel(int scrollValue,String selectedValue);
    public void setTitle(boolean isChecked);
+   public void setTextFields(String mainText);
 }
