@@ -20,12 +20,6 @@ public class DefenseSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MainController mc = new MainController();
-        // TODO code application logic here
-        MainControllerInterface mci= new MainControllerInterface(mc);
-        mc.addPositionLevelObserver(new TankInterface(mci));
-        mc.addPositionLevelObserver(new HelicopterInterface(mci));
-        mc.addPositionLevelObserver(new SubmarineInterface(mci));
         //new MainControllerInterface(mc).setVisible(true);
         //new TankInterface().setVisible(true);
         //new SubmarineInterface().setVisible(true);
