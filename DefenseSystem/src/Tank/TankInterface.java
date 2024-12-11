@@ -12,15 +12,18 @@ import MainController.MainControllerInterface;
  *
  * @author kguna
  */
-public class TankInterface extends javax.swing.JFrame implements ControlObserver{
+public class TankInterface extends javax.swing.JFrame implements ControlObserver {
+
     private MainControllerInterface mci;
+
     /**
      * Creates new form TankInterface
      */
     public TankInterface(MainControllerInterface mci) {
-        this.mci=mci;
+        this.mci = mci;
         initComponents();
-        setLocationRelativeTo(null);
+        setLocation(10, 440);
+        //setLocationRelativeTo(null);
         btnTaSh.setEnabled(false);
         btnTanRO.setEnabled(false);
         btnTaMO.setEnabled(false);
@@ -53,11 +56,11 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
         jButton5 = new javax.swing.JButton();
         jSlider1 = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 450));
-        setMinimumSize(new java.awt.Dimension(800, 450));
+        setMaximumSize(new java.awt.Dimension(750, 422));
+        setMinimumSize(new java.awt.Dimension(750, 422));
         getContentPane().setLayout(null);
 
         jLabANC.setBackground(new java.awt.Color(255, 255, 255));
@@ -65,10 +68,11 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
         jLabANC.setForeground(new java.awt.Color(255, 255, 255));
         jLabANC.setText("Area Not Cleared");
         getContentPane().add(jLabANC);
-        jLabANC.setBounds(50, 50, 120, 30);
+        jLabANC.setBounds(30, 20, 120, 30);
 
         btnTaSh.setBackground(new java.awt.Color(0, 102, 102));
         btnTaSh.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnTaSh.setForeground(new java.awt.Color(255, 255, 255));
         btnTaSh.setText("Shoot");
         btnTaSh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,60 +80,62 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
             }
         });
         getContentPane().add(btnTaSh);
-        btnTaSh.setBounds(70, 110, 124, 30);
+        btnTaSh.setBounds(40, 70, 124, 30);
 
         btnTanRO.setBackground(new java.awt.Color(0, 102, 102));
         btnTanRO.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnTanRO.setForeground(new java.awt.Color(255, 255, 255));
         btnTanRO.setText("Ready Operation");
         getContentPane().add(btnTanRO);
-        btnTanRO.setBounds(60, 150, 160, 30);
+        btnTanRO.setBounds(30, 110, 160, 30);
 
         btnTaMO.setBackground(new java.awt.Color(0, 102, 102));
         btnTaMO.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnTaMO.setForeground(new java.awt.Color(255, 255, 255));
         btnTaMO.setText("Missile Operation");
         getContentPane().add(btnTaMO);
-        btnTaMO.setBounds(220, 110, 160, 30);
+        btnTaMO.setBounds(190, 70, 160, 30);
 
         btnTanRS.setBackground(new java.awt.Color(0, 102, 102));
         btnTanRS.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnTanRS.setForeground(new java.awt.Color(255, 255, 255));
         btnTanRS.setText("Rotate Shooting\t");
         getContentPane().add(btnTanRS);
-        btnTanRS.setBounds(240, 150, 150, 30);
+        btnTanRS.setBounds(210, 110, 150, 30);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Soldier Count");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(582, 50, 100, 17);
+        jLabel2.setBounds(570, 20, 100, 17);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ammo Count");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(583, 80, 100, 17);
+        jLabel3.setBounds(570, 50, 100, 17);
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(700, 40, 44, 26);
+        jSpinner1.setBounds(670, 10, 44, 26);
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(700, 70, 44, 26);
+        jSpinner2.setBounds(670, 50, 44, 26);
 
         jCheckBox1.setBackground(new java.awt.Color(0, 0, 0));
         jCheckBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Position");
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(590, 110, 85, 21);
+        jCheckBox1.setBounds(600, 90, 85, 21);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 220, 380, 130);
+        jScrollPane1.setBounds(40, 200, 380, 130);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(50, 360, 299, 26);
+        jTextField1.setBounds(40, 340, 299, 26);
 
         jButton5.setBackground(new java.awt.Color(0, 102, 102));
         jButton5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -141,7 +147,7 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(360, 360, 70, 27);
+        jButton5.setBounds(350, 340, 70, 27);
 
         jSlider1.setBackground(new java.awt.Color(255, 255, 255));
         jSlider1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -150,18 +156,20 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
+        jSlider1.setValue(10);
         getContentPane().add(jSlider1);
-        jSlider1.setBounds(690, 150, 55, 260);
+        jSlider1.setBounds(610, 110, 55, 260);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Tank");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(350, 40, 70, 33);
+        jLabel4.setBounds(340, 20, 70, 33);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Object-Oriented Programming\\OOP Final Coursework\\img\\O1185290.jpg")); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 450);
+        jLabel5.setIcon(new javax.swing.ImageIcon("E:\\Object-Oriented Programming\\OOP Final Coursework\\img\\tank.png")); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 0, 750, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,7 +180,7 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        String tankText= jTextField1.getText();
+        String tankText = "Tank- " + jTextField1.getText();
         mci.setTankText(tankText);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -184,10 +192,10 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
     private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabANC;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner1;
@@ -199,17 +207,28 @@ public class TankInterface extends javax.swing.JFrame implements ControlObserver
     @Override
     public void update(int scrollValue, String selectedValue) {
         //System.out.println("correct");
-        if (scrollValue > 50 && selectedValue.equals("Tank")) {
-            btnTaSh.setEnabled(true);
-            btnTaMO.setEnabled(true);
-            btnTanRO.setEnabled(true);
-            btnTanRS.setEnabled(true);
-        }else if(scrollValue < 50 && selectedValue.equals("Tank")){
+//        if (scrollValue > 50 && selectedValue.equals("Tank")) {
+//            btnTaSh.setEnabled(true);
+//            btnTaMO.setEnabled(true);
+//            btnTanRO.setEnabled(true);
+//            btnTanRS.setEnabled(true);
+//        }else if(scrollValue < 50 && selectedValue.equals("Tank")){
+//            btnTaSh.setEnabled(false);
+//            btnTaMO.setEnabled(false);
+//            btnTanRO.setEnabled(false);
+//            btnTanRS.setEnabled(false);
+//        }
+        if (!selectedValue.equals("Tank")) {
             btnTaSh.setEnabled(false);
             btnTaMO.setEnabled(false);
             btnTanRO.setEnabled(false);
             btnTanRS.setEnabled(false);
+            return;
         }
+        btnTaSh.setEnabled(scrollValue > 1);
+        btnTaMO.setEnabled(scrollValue > 26);
+        btnTanRO.setEnabled(scrollValue > 51);
+        btnTanRS.setEnabled(scrollValue > 76);
     }
 
     @Override

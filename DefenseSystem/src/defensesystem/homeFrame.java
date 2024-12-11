@@ -23,6 +23,7 @@ public class homeFrame extends javax.swing.JFrame {
      */
     public homeFrame() {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 

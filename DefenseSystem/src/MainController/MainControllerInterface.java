@@ -4,6 +4,8 @@
  */
 package MainController;
 
+import java.awt.Color;
+
 /**
  *
  * @author kguna
@@ -13,7 +15,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
     ControlObservableInterface controlObservableInterface;
 
     String selectedValue;
-    
+
     int scrollValue;
 
     //MainController mc=new MainController();
@@ -23,7 +25,11 @@ public class MainControllerInterface extends javax.swing.JFrame {
     public MainControllerInterface(ControlObservableInterface controlObservableInterface) {
         this.controlObservableInterface = controlObservableInterface;
         initComponents();
-        setLocationRelativeTo(null);
+        setLocation(10, 0);
+        //setLocationRelativeTo(null);
+//        jTextArea4.setOpaque(false);
+//        jTextArea4.setBackground(new Color(0,0,0,0));
+//        jTextArea4.setForeground(Color.WHITE);
         setVisible(true);
     }
 
@@ -55,8 +61,7 @@ public class MainControllerInterface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 450));
-        setMinimumSize(new java.awt.Dimension(800, 450));
+        setMinimumSize(new java.awt.Dimension(750, 422));
         getContentPane().setLayout(null);
 
         jComBoSD.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -68,12 +73,12 @@ public class MainControllerInterface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComBoSD);
-        jComBoSD.setBounds(30, 30, 146, 30);
+        jComBoSD.setBounds(20, 20, 146, 30);
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setText("Collect Informations");
         getContentPane().add(jButton1);
-        jButton1.setBounds(190, 30, 180, 27);
+        jButton1.setBounds(170, 20, 180, 27);
 
         btnMaAreaClear.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnMaAreaClear.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,31 +89,31 @@ public class MainControllerInterface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnMaAreaClear);
-        btnMaAreaClear.setBounds(650, 30, 100, 21);
+        btnMaAreaClear.setBounds(560, 30, 100, 21);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Soldier Count");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(90, 100, 100, 17);
+        jLabel1.setBounds(170, 90, 100, 17);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fuel Amount");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(90, 130, 100, 17);
+        jLabel2.setBounds(170, 120, 100, 17);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ammo Amount");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(90, 160, 110, 17);
+        jLabel3.setBounds(170, 150, 110, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Position");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(90, 200, 60, 17);
+        jLabel4.setBounds(70, 170, 60, 17);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -124,15 +129,17 @@ public class MainControllerInterface extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(70, 300, 150, 90);
+        jScrollPane2.setBounds(50, 270, 220, 110);
 
         jCheckBox2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox2.setText("Sent Private");
         getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(620, 180, 120, 20);
+        jCheckBox2.setBounds(560, 180, 120, 20);
 
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Sent");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,27 +147,28 @@ public class MainControllerInterface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(620, 210, 70, 27);
+        jButton2.setBounds(580, 210, 70, 27);
 
         jSlider.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jSlider.setForeground(new java.awt.Color(255, 255, 255));
         jSlider.setMajorTickSpacing(20);
         jSlider.setPaintLabels(true);
         jSlider.setPaintTicks(true);
+        jSlider.setValue(0);
         jSlider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSliderStateChanged(evt);
             }
         });
         getContentPane().add(jSlider);
-        jSlider.setBounds(60, 230, 200, 47);
+        jSlider.setBounds(50, 200, 200, 47);
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(590, 290, 160, 90);
+        jScrollPane3.setBounds(500, 270, 220, 110);
 
         jScrollPane4.setBorder(null);
 
@@ -169,13 +177,11 @@ public class MainControllerInterface extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTextArea4);
 
         getContentPane().add(jScrollPane4);
-        jScrollPane4.setBounds(600, 80, 150, 90);
+        jScrollPane4.setBounds(500, 60, 220, 110);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("E:\\Object-Oriented Programming\\OOP Final Coursework\\img\\O1191214.jpg")); // NOI18N
-        jLabel5.setMaximumSize(new java.awt.Dimension(800, 450));
-        jLabel5.setMinimumSize(new java.awt.Dimension(800, 450));
+        jLabel5.setIcon(new javax.swing.ImageIcon("E:\\Object-Oriented Programming\\OOP Final Coursework\\img\\mainRoom.png")); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 800, 450);
+        jLabel5.setBounds(0, 0, 750, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -198,13 +204,14 @@ public class MainControllerInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
         scrollValue = jSlider.getValue();
         //System.out.println(scrollValue);
-        controlObservableInterface.setPositionLevel(scrollValue,selectedValue);
+        controlObservableInterface.setPositionLevel(scrollValue, selectedValue);
     }//GEN-LAST:event_jSliderStateChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String mainText=jTextArea4.getText();
-        //System.out.println(mainText);
+        String mainText = "Main Controller- " + jTextArea4.getText();
+//        System.out.println(mainText);
+//        System.out.println("correct");
         controlObservableInterface.setTextFields(mainText);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -215,13 +222,11 @@ public class MainControllerInterface extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 //    public void setTankMsg(String tankText){
 //        System.out.println(tankText);
 //        jTextArea2.setText(tankText);
 //    }
-    
-    public void setTankText(String tankText){
+    public void setTankText(String tankText) {
         jTextArea2.setText(tankText);
     }
 

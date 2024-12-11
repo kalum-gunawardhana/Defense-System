@@ -11,15 +11,18 @@ import MainController.MainControllerInterface;
  *
  * @author kguna
  */
-public class SubmarineInterface extends javax.swing.JFrame implements ControlObserver{
-private MainControllerInterface mci;
+public class SubmarineInterface extends javax.swing.JFrame implements ControlObserver {
+
+    private MainControllerInterface mci;
+
     /**
      * Creates new form SubmarineInterface
      */
     public SubmarineInterface(MainControllerInterface mci) {
-        this.mci=mci;
+        this.mci = mci;
         initComponents();
-        setLocationRelativeTo(null);
+        setLocation(770, 440);
+        //setLocationRelativeTo(null);
         btnSubSh.setEnabled(false);
         btnSubTM.setEnabled(false);
         btnSubSO.setEnabled(false);
@@ -55,54 +58,55 @@ private MainControllerInterface mci;
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 450));
-        setMinimumSize(new java.awt.Dimension(800, 450));
+        setMaximumSize(new java.awt.Dimension(750, 422));
+        setMinimumSize(new java.awt.Dimension(750, 422));
         getContentPane().setLayout(null);
 
         jLaANC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLaANC.setForeground(new java.awt.Color(255, 255, 255));
         jLaANC.setText("Area Not Cleared");
         getContentPane().add(jLaANC);
-        jLaANC.setBounds(60, 60, 120, 17);
+        jLaANC.setBounds(40, 20, 120, 17);
 
         btnSubSh.setBackground(new java.awt.Color(0, 102, 102));
         btnSubSh.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnSubSh.setForeground(new java.awt.Color(255, 255, 255));
         btnSubSh.setText("Shoot");
         getContentPane().add(btnSubSh);
-        btnSubSh.setBounds(40, 117, 116, 30);
+        btnSubSh.setBounds(30, 60, 116, 30);
 
         btnSubSO.setBackground(new java.awt.Color(0, 102, 102));
         btnSubSO.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSubSO.setForeground(new java.awt.Color(255, 255, 255));
         btnSubSO.setText("Sonar Operation");
         getContentPane().add(btnSubSO);
-        btnSubSO.setBounds(170, 120, 149, 30);
+        btnSubSO.setBounds(160, 60, 149, 30);
 
         btnSubTM.setBackground(new java.awt.Color(0, 102, 102));
         btnSubTM.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSubTM.setForeground(new java.awt.Color(255, 255, 255));
         btnSubTM.setText("Tomahawk Mi...");
         getContentPane().add(btnSubTM);
-        btnSubTM.setBounds(40, 160, 118, 30);
+        btnSubTM.setBounds(30, 100, 118, 30);
 
         btnSubT2M.setBackground(new java.awt.Color(0, 102, 102));
         btnSubT2M.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSubT2M.setForeground(new java.awt.Color(255, 255, 255));
         btnSubT2M.setText("Trident-2 Missile");
         getContentPane().add(btnSubT2M);
-        btnSubT2M.setBounds(170, 160, 150, 30);
+        btnSubT2M.setBounds(160, 100, 150, 30);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 260, 357, 90);
+        jScrollPane1.setBounds(30, 230, 357, 110);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(30, 360, 282, 26);
+        jTextField1.setBounds(30, 350, 282, 26);
 
         jButton5.setBackground(new java.awt.Color(0, 102, 102));
         jButton5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -114,31 +118,32 @@ private MainControllerInterface mci;
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(320, 360, 70, 27);
+        jButton5.setBounds(320, 350, 70, 27);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Soldier Count");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(590, 70, 96, 17);
+        jLabel2.setBounds(530, 40, 96, 17);
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(700, 60, 44, 26);
+        jSpinner1.setBounds(640, 30, 44, 26);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ammo Count");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(592, 100, 100, 17);
+        jLabel3.setBounds(530, 70, 100, 17);
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(700, 90, 44, 26);
+        jSpinner2.setBounds(640, 60, 44, 26);
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Position");
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(590, 130, 85, 20);
+        jCheckBox1.setBounds(560, 110, 85, 20);
 
         jSlider1.setBackground(new java.awt.Color(255, 255, 255));
         jSlider1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -147,8 +152,9 @@ private MainControllerInterface mci;
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
+        jSlider1.setValue(10);
         getContentPane().add(jSlider1);
-        jSlider1.setBounds(600, 210, 52, 200);
+        jSlider1.setBounds(530, 170, 52, 200);
 
         jSlider2.setBackground(new java.awt.Color(255, 255, 255));
         jSlider2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -157,22 +163,23 @@ private MainControllerInterface mci;
         jSlider2.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider2.setPaintLabels(true);
         jSlider2.setPaintTicks(true);
+        jSlider2.setValue(10);
         getContentPane().add(jSlider2);
-        jSlider2.setBounds(700, 210, 55, 200);
+        jSlider2.setBounds(620, 170, 55, 200);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Energy");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(590, 180, 50, 17);
+        jLabel4.setBounds(530, 150, 50, 17);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Oxigen");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(700, 180, 50, 17);
+        jLabel5.setBounds(620, 150, 50, 17);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -181,16 +188,16 @@ private MainControllerInterface mci;
         getContentPane().add(jLabel1);
         jLabel1.setBounds(340, 20, 140, 33);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("E:\\Object-Oriented Programming\\OOP Final Coursework\\img\\O1160194.png")); // NOI18N
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 0, 800, 450);
+        jLabel6.setIcon(new javax.swing.ImageIcon("E:\\Object-Oriented Programming\\OOP Final Coursework\\img\\submarin.png")); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 750, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        String tankText= jTextField1.getText();
+        String tankText = "Submarine- " + jTextField1.getText();
         mci.setTankText(tankText);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -208,7 +215,7 @@ private MainControllerInterface mci;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
@@ -220,17 +227,28 @@ private MainControllerInterface mci;
 
     @Override
     public void update(int scrollValue, String selectedValue) {
-        if (scrollValue > 50 && selectedValue.equals("Submarine")) {
-            btnSubSh.setEnabled(true);
-            btnSubSO.setEnabled(true);
-            btnSubTM.setEnabled(true);
-            btnSubT2M.setEnabled(true);
-        }else if(scrollValue < 50 && selectedValue.equals("Submarine")){
+//        if (scrollValue > 50 && selectedValue.equals("Submarine")) {
+//            btnSubSh.setEnabled(true);
+//            btnSubSO.setEnabled(true);
+//            btnSubTM.setEnabled(true);
+//            btnSubT2M.setEnabled(true);
+//        }else if(scrollValue < 50 && selectedValue.equals("Submarine")){
+//            btnSubSh.setEnabled(false);
+//            btnSubSO.setEnabled(false);
+//            btnSubTM.setEnabled(false);
+//            btnSubT2M.setEnabled(false);
+//        }
+        if (!selectedValue.equals("Submarine")) {
             btnSubSh.setEnabled(false);
             btnSubSO.setEnabled(false);
             btnSubTM.setEnabled(false);
             btnSubT2M.setEnabled(false);
+            return;
         }
+        btnSubSh.setEnabled(scrollValue > 1);
+        btnSubSO.setEnabled(scrollValue > 26);
+        btnSubTM.setEnabled(scrollValue > 51);
+        btnSubT2M.setEnabled(scrollValue > 76);
     }
 
     @Override

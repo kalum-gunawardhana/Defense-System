@@ -23,6 +23,7 @@ public class introJFrame extends javax.swing.JFrame {
      */
     public introJFrame() {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
